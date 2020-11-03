@@ -1,0 +1,35 @@
+server:
+  servlet:
+    context-path: /example
+  port: 8082
+security:
+  token:
+    secret:
+      key: Asjfwol2asf123142Ags1k23hnSA36as6f4qQ324FEsvb
+      tokenExpiration: 518400
+      header: Authorization
+      prefix: Bearer
+spring:
+  datasource:
+    hikari:
+      jdbcUrl: jdbc:postgresql://localhost:5432/postgres
+      username: postgres
+      password: postgre
+      maximumPoolSize: 5
+      maxLifetime: 30000
+      connectionTimeout: 15000
+      idleTimeout: 10000
+      minimumIdle: 1
+logging:
+#  file: logs/usersrolems/application-debug-%d{dd-MM-yyyy}.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ch.qos.logback.classic: DEBUG
+    org.springframework.web: DEBUG
+    com.howtodoinjava: DEBUG
+    org.hibernate: ERROR
+    com.zaxxer.hikari: TRACE
+    com.zaxxer.hikari.HikariConfig: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
